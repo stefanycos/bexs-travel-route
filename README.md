@@ -7,7 +7,7 @@ Implementation of a route service that given some connections among airports ret
 
 #### Running application
 The application needs a csv file containing the routes as input, the file named input-routes.csv along with the initialization script is at infrasctructure folder. At project folder run the **sh start.sh** script passing the path to csv file as argument.
-* E.g. sh start.sh ""/Users/root/Downloads/input-routes.csv""
+* E.g. sh start.sh "/Users/root/Downloads/input-routes.csv"
 
 #### Usage
 Exists two ways to use the application:
