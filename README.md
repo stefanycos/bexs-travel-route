@@ -36,3 +36,6 @@ To implement the application base was used the [Dijkstra Algorithm](https://pt.w
 - processor: here we have the application processors (web and command line) implementing Route Processor and also the bussines logics for each interface;
 - App: starts the application by using observer pattern to initialize all implementation of Route Processors.
 
+
+### Tests
+Some integration and unit test can be found at test directory.
