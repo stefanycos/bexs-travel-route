@@ -10,16 +10,16 @@ public class App {
 
 	public static void main(String[] args) {
 
-
 		try {
 			String filename = args[0];
 			ValidationUtility.validateInput(filename,
-					"Missing argument. A CSV file is required to initialize program." + filename);
-			
+					"Invalid argument. A CSV file is required to initialize program." + filename);
+
 			RouteRepository.createAirportsConnections(filename);
+		} catch (final IndexOutOfBoundsException e) {
+			printErrorMessageAndExit("Missing argument. A CSV file is required to initialize program.");
 		} catch (final Exception e) {
-			System.out.println(e.getMessage());
-			System.exit(1);
+			printErrorMessageAndExit(e.getMessage());
 		}
 
 		initializeProcessors();
@@ -30,5 +30,10 @@ public class App {
 		new WebProcessor();
 		new CommandLineProcessor();
 		ProcessorObserver.getInstance().initialize();
+	}
+
+	private static void printErrorMessageAndExit(String message) {
+		System.out.println(message); // NOSONAR
+		System.exit(1);
 	}
 }

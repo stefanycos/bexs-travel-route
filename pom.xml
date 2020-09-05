@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.com.bexs.travel.routes</groupId>
-	<artifactId>service</artifactId>
+	<artifactId>travel-route-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>bexs-travel-route</name>

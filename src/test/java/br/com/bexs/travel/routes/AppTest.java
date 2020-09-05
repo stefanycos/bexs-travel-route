@@ -1,20 +1,17 @@
 package br.com.bexs.travel.routes;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
+public class AppTest {
+
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void whenStarting_givenNoArgument_thenThrowsIndexOutOfBoundsException() {
+		App.main(null);
+	}
+
+	@Test(expected = Exception.class)
+	public void whenStarting_givenEmpty_thenThrowsException() {
+		String[] argument = new String[] { "" };
+		App.main(argument);
+	}
 }

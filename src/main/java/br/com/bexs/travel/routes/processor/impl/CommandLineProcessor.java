@@ -18,13 +18,16 @@ public class CommandLineProcessor extends RouteProcessor {
 		ProcessorObserver.getInstance().addProcessor(this);
 	}
 
-	@SuppressWarnings("resource")
 	@Override
 	public void init() {
 		Scanner in = new Scanner(System.in);
 
 		printWelcomeMessage();
 
+		readInputAndProcess(in);
+	}
+
+	private void readInputAndProcess(Scanner in) {
 		while (true) {
 
 			String message = "Best Route: ";
@@ -42,9 +45,10 @@ public class CommandLineProcessor extends RouteProcessor {
 				String[] split = line.split("-");
 				path = getBestRoute(split[0], split[1]);
 
+			} catch (final IndexOutOfBoundsException e) {
+				message = "Invalid airport input";
 			} catch (final Exception e) {
-				message = "";
-				System.out.println(e.getMessage());
+				message = e.getMessage();
 			}
 
 			System.out.println(message + path);
